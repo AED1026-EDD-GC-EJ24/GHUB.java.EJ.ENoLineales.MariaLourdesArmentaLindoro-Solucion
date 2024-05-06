@@ -67,13 +67,16 @@ public class AppArbol{
         Nodo nodoE = new Nodo("E");
         Nodo nodoF = new Nodo("F");
         Nodo nodoG = new Nodo("G");
+
         ab.setRaiz(nodoA);
         ab.getRaiz().setIzquierdo(nodoB);
         ab.getRaiz().setDerecho(nodoC);
+
         nodoB.setIzquierdo(nodoD);
         nodoB.setDerecho(nodoE);
         nodoC.setIzquierdo(nodoF);
         nodoC.setDerecho(nodoG);
+
         return ab;
 
     }
@@ -82,18 +85,13 @@ public class AppArbol{
         ArbolBinario ab = insertarNodo();
         System.out.println("\n Recorrido inOrden Recursivo");
         ab.inorden();
-
        
-
     }
     public static void recorridoPreOrden(){
         //crea un árbol y lo recorre en preorden
         ArbolBinario ab = insertarNodo();
         System.out.println("\n Recorrido preOrden Recursivo");
         ab.preorden();
-
-        
-          
 
     }
     public static void recorridoPostOrden(){
