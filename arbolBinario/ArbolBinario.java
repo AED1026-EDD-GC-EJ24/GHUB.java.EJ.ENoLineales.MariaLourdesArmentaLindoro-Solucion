@@ -63,6 +63,60 @@ public class ArbolBinario{
     //Recorrido Iterativo en Preorden, utilizando una pila
     public void preordenIterativo(){
         Pila<Nodo> pila = new Pila<Nodo>();
+        pila.apilar(raiz);
+        while(!pila.esVacia()){
+            Nodo aux = pila.cima();
+            visitar(aux);
+            pila.retirar();
+            if(aux.getDerecho() !=null)
+               pila.apilar(aux.getDerecho());
+            if(aux.getIzquierdo() !=null)
+               pila.apilar(aux.getIzquierdo());
+        }
+
+    }
+
+    //Recorrido Iterativo en Inorden, utilizando una pila
+    public void inordenIterativo(){
+        Pila<Nodo> pila = new Pila<Nodo>();
+        pila.apilar(raiz);
+        Nodo aux = raiz.getIzquierdo();
+        while (aux !=null || !pila.esVacia()){
+            if(aux !=null){
+                pila.apilar(aux);
+                aux = aux.getIzquierdo();
+            }else{
+                aux = pila.cima();
+                pila.retirar();
+                visitar(aux);
+                aux = aux.getDerecho();
+            }
+        }
+    }
+
+    //Recorrido Iterativo en PostOrden, utilizando una pila
+    public void postOrdenIterativo(){
+        Pila<Nodo> pila = new Pila<Nodo>();
+        Nodo aux = raiz;
+        Nodo q = raiz;
+        while (aux !=null){
+            //Avanza por la izquierda y apila los nodos
+            while(aux.getIzquierdo() !=null){
+                pila.apilar(aux);
+                aux = aux.getIzquierdo();
+            }
+            while(aux !=null && (aux.getDerecho() ==null || aux.getDerecho() == q)){
+                visitar(aux);
+                q = aux;
+                if(pila.esVacia())
+                   return;
+
+                aux = pila.cima();
+                pila.retirar();
+            }
+            pila.apilar(aux);
+            aux = aux.getDerecho();
+        }
     }
 
     
