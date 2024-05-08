@@ -12,6 +12,7 @@
 ./arbolBinarioOrdenado/Entero.java
 ./arbolBinarioOrdenado/Estudiante.java
 ./arbolBinarioOrdenado/Comparable.java
+./arbolBinarioOrdenado/BTreePrinter.java
 ./arbolBinarioOrdenado/ArbolBinario.java
 ./interfases/Criterio.java
 ./interfases/CriterioPersonaNombre.java
