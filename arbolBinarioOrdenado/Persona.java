@@ -25,17 +25,19 @@ public class Persona implements Comparable{
     }
     public boolean esMenor(Object q){
         Persona obj =(Persona)q;
-        return (id<obj.getId());
+        return (this.nombre.compareTo(obj.getNombre())<0);
+        
 
     }
     public boolean esMayor(Object q){
         Persona obj =(Persona)q;
-        return (id>obj.getId());
+        return (this.nombre.compareTo(obj.getNombre())>0);
 
     }
     public boolean esIgual(Object q){
         Persona obj =(Persona)q;
-        return (id==obj.getId());
+        //return (id==obj.getId());
+        return (this.nombre.equals(obj.getNombre()));
 
     }
 }
