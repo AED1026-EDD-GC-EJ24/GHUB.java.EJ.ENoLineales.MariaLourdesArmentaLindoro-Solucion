@@ -1,4 +1,6 @@
 package arbolBinarioOrdenado;
+import static org.junit.Assert.assertNull;
+
 import pilas.Pila;
 
 public class ArbolBinario{
@@ -223,6 +225,67 @@ public class ArbolBinario{
         else
            return localizar(raizSub.getDerecho(),buscado);
            
+    }
+    //Implementacion iterativa de eliminar
+    public boolean eliminar(Object valor){
+        Comparable dato = (Comparable)valor;
+        //Busco el nodo a eliminar y su antecesor
+        //antecesor: es el padre del nodo a eliminar
+        Nodo antecesor = null;
+        //aux: auxiliar que va recorriendo los nodoso
+        Nodo aux = raiz;
+        while(aux !=null){
+            if (dato.esIgual(aux.getValor())){
+                break;
+            }
+            antecesor = aux;
+            if(dato.esMenor(aux.getValor()))
+               aux = aux.getIzquierdo();
+            else
+               aux = aux.getDerecho();
+        }
+        if (aux ==null)
+           return false;//dato no encontrado
+        //si llega a este punto, el nodo a eliminar existe y esta en aux y el
+        // su padre esta en antecesor
+        //Examinar cada caso
+        if(aux.getIzquierdo() ==null)
+          if(aux.getValor().esMenor(antecesor.getValor()))
+             antecesor.setIzquierdo(aux.getDerecho());
+          else
+             antecesor.setDerecho(aux.getDerecho());
+        else if(aux.getDerecho()==null)
+                if(aux.getValor().esMenor(antecesor.getValor()))
+                   antecesor.setIzquierdo(aux.getIzquierdo());
+                else
+                   antecesor.setDerecho(aux.getIzquierdo());
+        else  
+           //El nodo a eliminar tiene rama izquierda y rama derecha
+           reemplazarPorMayorIzquierdo(aux);
+        aux = null;
+        return true;
+
+
+    }
+    private void reemplazarPorMayorIzquierdo(Nodo act){
+        Nodo mayor=act;
+        Nodo ant = act;
+        mayor = act.getIzquierdo();
+        //Buscar el mayor de la rama izquiersda
+        //ant el antecesor de mayor
+        while(mayor.getIzquierdo() != null){
+            ant= mayor;
+            mayor = mayor.getDerecho();
+        }
+        act.setValor(mayor.getValor()); //reenplazo //reajuste
+        if(ant ==act)
+           ant.setIzquierdo(mayor.getIzquierdo());
+        else
+           ant.setDerecho(mayor.getIzquierdo());
+
+
+
+
     }
 
 
