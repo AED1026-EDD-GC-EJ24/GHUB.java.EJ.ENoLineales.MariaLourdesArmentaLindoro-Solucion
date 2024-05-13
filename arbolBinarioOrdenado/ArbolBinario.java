@@ -273,7 +273,7 @@ public class ArbolBinario{
         mayor = act.getIzquierdo();
         //Buscar el mayor de la rama izquiersda
         //ant el antecesor de mayor
-        while(mayor.getIzquierdo() != null){
+        while(mayor.getDerecho() != null){
             ant= mayor;
             mayor = mayor.getDerecho();
         }
@@ -282,8 +282,6 @@ public class ArbolBinario{
            ant.setIzquierdo(mayor.getIzquierdo());
         else
            ant.setDerecho(mayor.getIzquierdo());
-
-
 
 
     }

@@ -1,6 +1,7 @@
 package miPrincipal;
 import arbolBinarioOrdenado.ArbolBinario;
 import arbolBinarioOrdenado.Entero;
+import arbolBinarioOrdenado.BTreePrinter;
 import java.util.Scanner;
 public class AppArbolBinarioBusqueda{
     public static void menu(){
@@ -21,7 +22,6 @@ public class AppArbolBinarioBusqueda{
                 case 1:
                    insertarNodos();
                    break;
-                    
                 case 2:
                    buscarNodos();
                    break;
@@ -36,7 +36,6 @@ public class AppArbolBinarioBusqueda{
                     System.out.println("Opción inválida");
             }
             } while (opc != 0);
-       
     }
       
     public static void insertarNodos(){
@@ -46,21 +45,66 @@ public class AppArbolBinarioBusqueda{
             arbol.insertar(new  Entero(10));
             arbol.insertar(new  Entero(20));
             arbol.insertar(new  Entero(5));
+            arbol.insertar(new Entero(30));
+            arbol.insertar(new Entero(40));
+            arbol.insertar(new Entero(4));
             System.out.println();
+            System.out.println("Recorrido Inorden");
             arbol.inorden();
             System.out.println();
+            System.out.println("Recorrido PreOrden");
             arbol.preorden();
             System.out.println();
-            arbol.preorden();
+            System.out.println("Recorrido PostOrden");
+            arbol.postorden();
+            System.out.println();
+            System.out.println("Impresion del árbol");
+            BTreePrinter.printNode(arbol.getRaiz());
+
         } catch (Exception e) {
             
             e.printStackTrace();
-        }
-        
+        }  
         
     }
     public static void eliminarNodos(){
         System.out.println("**** ELIMINAR NODOS ****");
+        ArbolBinario arbol = new ArbolBinario();
+        try {
+            arbol.insertar(new  Entero(10));
+            arbol.insertar(new  Entero(20));
+            arbol.insertar(new  Entero(5));
+            arbol.insertar(new Entero(30));
+            arbol.insertar(new Entero(40));
+            arbol.insertar(new Entero(4));
+            System.out.println();
+            System.out.println("Recorrido Inorden");
+            arbol.inorden();
+            System.out.println();
+            System.out.println("Recorrido PreOrden");
+            arbol.preorden();
+            System.out.println();
+            System.out.println("Recorrido PostOrden");
+            arbol.postorden();
+            System.out.println();
+            System.out.println("Impresion del árbol");
+            BTreePrinter.printNode(arbol.getRaiz());
+            System.out.println("Elimino Nodo 40");
+            arbol.eliminar(new Entero(40));
+            System.out.println("Impresion del arbol despues de la eliminacion");
+            BTreePrinter.printNode(arbol.getRaiz());
+            System.out.println("Elimino Nodo 10");
+            arbol.eliminar(new Entero(10));
+            System.out.println("Impresion del arbol despues de la eliminacion");
+            BTreePrinter.printNode(arbol.getRaiz());
+
+
+
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }  
+        
 
     }
     public static void buscarNodos(){
