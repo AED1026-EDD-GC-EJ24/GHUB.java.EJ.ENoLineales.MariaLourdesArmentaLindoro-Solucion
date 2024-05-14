@@ -48,6 +48,8 @@ public class AppArbolBinarioBusqueda{
             arbol.insertar(new Entero(30));
             arbol.insertar(new Entero(40));
             arbol.insertar(new Entero(4));
+            //trato de insertar un repetido
+            arbol.insertar(new Entero(4));
             System.out.println();
             System.out.println("Recorrido Inorden");
             arbol.inorden();
@@ -89,12 +91,13 @@ public class AppArbolBinarioBusqueda{
             System.out.println();
             System.out.println("Impresion del árbol");
             BTreePrinter.printNode(arbol.getRaiz());
+            System.out.println("Elimino Nodo 10");
+            arbol.eliminar(new Entero(10));
             System.out.println("Elimino Nodo 40");
             arbol.eliminar(new Entero(40));
             System.out.println("Impresion del arbol despues de la eliminacion");
             BTreePrinter.printNode(arbol.getRaiz());
-            System.out.println("Elimino Nodo 10");
-            arbol.eliminar(new Entero(10));
+           
             System.out.println("Impresion del arbol despues de la eliminacion");
             BTreePrinter.printNode(arbol.getRaiz());
 
@@ -109,6 +112,39 @@ public class AppArbolBinarioBusqueda{
     }
     public static void buscarNodos(){
         System.out.println("**** BUSCAR NODOS ****");
+        ArbolBinario arbol = new ArbolBinario();
+        try {
+            arbol.insertar(new  Entero(10));
+            arbol.insertar(new  Entero(20));
+            arbol.insertar(new  Entero(5));
+            arbol.insertar(new Entero(30));
+            arbol.insertar(new Entero(40));
+            arbol.insertar(new Entero(4));
+            System.out.println();
+            System.out.println("Recorrido Inorden");
+            arbol.inorden();
+            System.out.println();
+            System.out.println("Recorrido PreOrden");
+            arbol.preorden();
+            System.out.println();
+            System.out.println("Recorrido PostOrden");
+            arbol.postorden();
+            System.out.println();
+            System.out.println("Impresion del árbol");
+            BTreePrinter.printNode(arbol.getRaiz());
+            System.err.println("Busco el Dato 20 que existe:");
+            System.out.println(arbol.buscar(new Entero(20)).getValor());
+            System.out.println("Buscon un dato 11 que no existe:");
+            System.out.println(arbol.buscar(new Entero(11)));
+            //la linea de abajo marca error porque es nulo
+            //System.out.println(arbol.buscar(new Entero(11)).getValor());
+
+
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+        }  
+
 
     }
 }
