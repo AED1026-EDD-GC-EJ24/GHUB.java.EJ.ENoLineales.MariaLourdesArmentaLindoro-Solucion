@@ -1,5 +1,6 @@
 ./pilas/Nodo.java
 ./pilas/Pila.java
+./demoClaseTree/DemoClaseTree.java
 ./interfases2/CriterioPersonaNombre.java
 ./interfases2/TestOrdenar.java
 ./interfases2/Persona.java
@@ -21,6 +22,7 @@
 ./arbolAVL/ArbolAVL.java
 ./arbolAVL/Entero.java
 ./arbolAVL/Comparable.java
+./arbolAVL/BTreePrinter.java
 ./interfases/Criterio.java
 ./interfases/CriterioPersonaNombre.java
 ./interfases/TestOrdenar.java
