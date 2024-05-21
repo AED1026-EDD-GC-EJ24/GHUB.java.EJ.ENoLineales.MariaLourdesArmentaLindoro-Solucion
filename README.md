@@ -45,6 +45,48 @@ classDiagram
 
 ```
 
+```mermaid
+---
+title: TAD Matriz de Adyacencia de un Grafo
+---
+classDiagram
+    class GrafoMatriz{
+        +MAX_VERTICES: int
+        +INFINITO: int
+        -numVerts:int
+        -matAd[][]: int
+        -verts: Vertice[]
+        +GrafoMatriz()
+        +GrafoMatriz(tot:int)
+        +inicializarMatrizPesos():void
+        +getMatriz():int[][]
+        +nuevoVertice(nom:String)
+        -numVertice(nom:String):int
+        +nombreVertice(v:int):String
+        +nuevoArco(a:String, b:String)
+        +nuevoArco(a:String, b:String, peso:int)
+        +adyacencia(a:String, b:String):boolean
+        +adyacencia(a:int, b:int):boolean
+        +imprimirMatriz():String
+        +imprimirVertice():String
+        +numeroDeVertices():int
+        +borrarArco(a:String, b:String)
+        +borrarVertice(nom:String)
+
+        +apilar(Integer): void
+    }
+    class Vertice{
+        -nombfe: String
+        +Vertice(nombre:String)
+        +getNombre():String
+        +setNombre(nombre:String)
+        +toString():String
+    }
+    GrafoMatriz o-- Vertice: contiene
+
+
+```
+
 
 
 [Referencia-Mermaid](https://mermaid.js.org/syntax/classDiagram.html)
