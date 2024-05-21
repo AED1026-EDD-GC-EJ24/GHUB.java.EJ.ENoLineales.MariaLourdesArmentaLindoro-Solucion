@@ -88,6 +88,58 @@ classDiagram
 ```
 
 
+```mermaid
+---
+title: TAD Lista de Adyacencia de un Grafo
+---
+classDiagram
+    class GrafoAdcia{
+        -VectorVertices: ArrayList<VerticeAdy>
+        +GrafoAdcia()
+        +nuevoVertice(nom:String)
+        +existeVertice(nom:String):boolean
+        +nuevoArco(a:String, b:String)
+        +nuevoArco(a:String, b:String), peso:int
+        +borrarVertice(nom:String)
+        +borrarArco(a:String, b:String)
+        -buscarVertice(nom:String): VerticeAdy
+        +adyacencia(a:String, b:String):boolean
+        +imprimirListaAdyacencia():String
+        +imprimirVertices():String
+    }
+    class VerticeAdy{
+        -nombre: String
+        -lad: ArrayList<Arco
+        +VerticeAdy(nombre: String)
+        +nuevoArco(destino:String)
+        +nuevoArco(destino:String,peso:int)
+        +existeArco(destino:String):boolean
+        +borrarArco(nom:String)
+        +getNombre(): String
+        +setNombre(nombre: String): void
+        +getListaAdyacencia():String
+        +equals(n:VerticeAdy):boolean
+        +toString():String
+        
+    }
+    class Arco{
+        -destino:String
+        -peso: int
+        +Arco(destino:String)
+        +Arco(destino:String,peso: int)
+        +getDestino():String
+        +setDestino(destino:String)
+        +getPeso(): int
+        +setPeso(peso: int): void
+        +equals(n:Object):boolean
+    }
+    GrafoAdcia o-- VerticeAdy: contiene
+    VerticeAdy o-- Arco: tiene
+
+
+```
+
+
 
 [Referencia-Mermaid](https://mermaid.js.org/syntax/classDiagram.html)
 
