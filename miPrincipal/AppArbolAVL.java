@@ -139,9 +139,10 @@ public class AppArbolAVL{
             Nodo buscado = abo.buscar(new Entero(50));
             System.out.println("Elemento buscado = "+buscado.getValor());
             buscado = abo.buscar(new Entero(100));
-            System.out.println("Elemento buscado = "+buscado.getValor());
-
-
+            if (buscado != null)
+                    System.out.println("Elemento buscado = "+buscado.getValor());
+            else
+            System.out.println("No encontrado");
 
         }
         catch(Exception e){

@@ -44,12 +44,13 @@ public class AppArbolBinarioBusqueda{
         try {
             arbol.insertar(new  Entero(10));
             arbol.insertar(new  Entero(20));
-            arbol.insertar(new  Entero(5));
-            arbol.insertar(new Entero(30));
+            arbol.insertar(new  Entero(30));
             arbol.insertar(new Entero(40));
-            arbol.insertar(new Entero(4));
+            arbol.insertar(new Entero(50));
+            arbol.insertar(new Entero(60));
+            arbol.insertar(new Entero(70));
             //trato de insertar un repetido
-            arbol.insertar(new Entero(4));
+            //arbol.insertar(new Entero(40));
             System.out.println();
             System.out.println("Recorrido Inorden");
             arbol.inorden();
