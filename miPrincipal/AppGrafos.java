@@ -7,15 +7,15 @@ public class AppGrafos{
         int opc;
         Scanner entrada = new Scanner(System.in);
         do{
-            System.out.println("********************************");
-            System.out.println("             GRAFOS             ");
-            System.out.println("********************************");
-            System.out.println("1) Matriz de Adyacencia         ");
-            System.out.println("2) Lista de Adyacencia          ");
+            System.out.println("**********************************");
+            System.out.println("             GRAFOS               ");
+            System.out.println("**********************************");
+            System.out.println("1) Matriz de Adyacencia           ");
+            System.out.println("2) Lista de Adyacencia            ");
+            System.out.println("3) Recorrido Anchura y Profundidad");          
             System.out.println();
-        
-            System.out.println("0) SALIR                        ");
-            System.out.println("********************************");
+            System.out.println("0) SALIR                          ");
+            System.out.println("**********************************");
             System.out.print("Selecciona opción:");
             opc=entrada.nextInt();
             switch (opc) {
@@ -25,6 +25,10 @@ public class AppGrafos{
                 case 2:
                     listaAdyacencia();
                     break;
+                case 3:
+                    recorridos();
+                    break;
+                
                 case 0:
                     System.out.println("Hasta luego");
                     break;
@@ -74,4 +78,38 @@ public class AppGrafos{
         System.out.println("       LISTA ADYACENCIA         ");
         System.out.println("********************************");
     }
+    public static void recorridos(){
+        System.out.println("***********************************");
+        System.out.println(" RECORRIDO ANCHURA  y PROFUNDIDAD  ");   
+        System.out.println("***********************************");
+         //crear un grafo
+         GrafoMatriz grafo = new GrafoMatriz();
+         grafo.nuevoVertice("A");
+         grafo.nuevoVertice("B");
+         grafo.nuevoVertice("C");
+         grafo.nuevoVertice("D");
+         grafo.nuevoVertice("H");
+         grafo.nuevoVertice("R");
+         grafo.nuevoVertice("T");
+         try{
+             grafo.nuevoArco("B","H");
+             grafo.nuevoArco("C","R");
+             grafo.nuevoArco("D", "C");
+             grafo.nuevoArco("D", "B");
+             grafo.nuevoArco("H", "A");
+             grafo.nuevoArco("H", "T");
+             grafo.nuevoArco("R", "H");
+             System.out.println("Recorrido Anchura");
+             GrafoMatriz.recorrerAnchura(grafo, "D");
+             System.out.println("Recorrido Profundidad");
+             GrafoMatriz.recorrerProfundidad(grafo,"D");
+         }
+         catch(Exception e){
+             e.printStackTrace();
+         }
+         
+        
+
+    }
+    
 }
