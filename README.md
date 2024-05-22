@@ -72,11 +72,9 @@ classDiagram
         +numeroDeVertices():int
         +borrarArco(a:String, b:String)
         +borrarVertice(nom:String)
-
-        +apilar(Integer): void
     }
     class Vertice{
-        -nombfe: String
+        -nombre: String
         +Vertice(nombre:String)
         +getNombre():String
         +setNombre(nombre:String)
